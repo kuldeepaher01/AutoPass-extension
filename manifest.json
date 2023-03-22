@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "AutoPass",
+  "version": "2.2",
+  "description": "Effortless login",
+  "icons": {
+    "48": "icons/48icon.png",
+    "128": "icons/64icon.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [{
+    "matches": [
+      "https://classroom.volp.in/*",
+      "https://learner.vierp.in/*"
+    ],
+    "js": ["content.js"]
+  }]
+}
