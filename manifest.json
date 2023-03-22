@@ -1,16 +1,14 @@
 {
   "manifest_version": 3,
   "name": "AutoPass",
-  "version": "2.2",
+  "version": "2.3",
   "description": "Effortless login",
   "icons": {
     "48": "icons/48icon.png",
     "128": "icons/64icon.png"
   },
   "permissions": [
-    "storage",
-    "activeTab",
-    "scripting"
+    "storage"
   ],
   "background": {
     "service_worker": "background.js"
