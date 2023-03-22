@@ -18,48 +18,71 @@ function vierp() {
 						setTimeout(function () {
 							console.log("logging");
 							autoLogin(data.username_vierp, data.password_vierp);
-						}, 800);
+						}, 200);
 					}
 				},
 			);
 
 			function autoLogin(username, password) {
-				const usernameInput = document.getElementById("input-28");
-				usernameInput.value = username;
-				const signinButton = document.querySelector(
-					"#signinusername > center > button",
-				);
-				const inputEvent = new Event("input", { bubbles: true });
-				usernameInput.dispatchEvent(inputEvent);
-				signinButton.click();
-				console.log("usr_set");
+				const MAX_RETRIES = 5;
+				let retryCount = 0;
 
-				let passwordIntervalId = null;
-				function checkPasswordInput() {
-					const passwordInput = document.getElementById("input-34");
-					if (passwordInput) {
-						clearInterval(passwordIntervalId);
-						passwordInput.value = password;
-						console.log("pass_val_set");
+				const attemptLogin = () => {
+					try {
+						const usernameInput = document.getElementById("input-28");
+						usernameInput.value = username;
 						const signinButton = document.querySelector(
-							"#signinpassword > center:nth-child(3) > button",
+							"#signinusername > center > button",
 						);
-						passwordInput.dispatchEvent(new Event("input", { bubbles: true }));
+						const inputEvent = new Event("input", { bubbles: true });
+						usernameInput.dispatchEvent(inputEvent);
 						signinButton.click();
-						console.log("clicking");
+						console.log("usr_set");
 
-						setTimeout(checkUrl, 800);
-					}
-				}
-				passwordIntervalId = setInterval(checkPasswordInput, 800);
+						let passwordIntervalId = null;
+						function checkPasswordInput() {
+							const passwordInput = document.getElementById("input-34");
+							if (passwordInput) {
+								clearInterval(passwordIntervalId);
+								passwordInput.value = password;
+								console.log("pass_val_set");
+								const signinButton = document.querySelector(
+									"#signinpassword > center:nth-child(3) > button",
+								);
+								passwordInput.dispatchEvent(
+									new Event("input", { bubbles: true }),
+								);
+								signinButton.click();
+								console.log("clicking");
 
-				function checkUrl() {
-					if (window.location.href === "https://learner.vierp.in/") {
-						location.reload();
-					} else {
-						setTimeout(checkUrl, 200);
+								setTimeout(checkUrl, 200);
+							}
+						}
+						passwordIntervalId = setInterval(checkPasswordInput, 200);
+
+						function checkUrl() {
+							if (window.location.href === "https://learner.vierp.in/") {
+								location.reload();
+							} else {
+								setTimeout(checkUrl, 100);
+							}
+						}
+					} catch (err) {
+						console.error(err);
+						if (retryCount < MAX_RETRIES) {
+							retryCount++;
+							console.log(`Retrying...attempt ${retryCount}`);
+							setTimeout(() => {
+								window.location.reload();
+								attemptLogin();
+							}, 1000);
+						} else {
+							console.error(`Max retries exceeded (${MAX_RETRIES})`);
+						}
 					}
-				}
+				};
+
+				attemptLogin();
 			}
 		}
 	});
