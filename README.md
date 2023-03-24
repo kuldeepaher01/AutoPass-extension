@@ -3,16 +3,18 @@
 
 AutoPass is a Chrome extension designed to simplify the login process for college websites by automatically filling in login credentials. This extension was created with the intention of helping busy students save time and effort by eliminating the need to manually enter login information every time they visit a college website.
 
+
 ## Installation
 
-To install AutoPass, follow these simple steps:
+You can install Autopass from the [Chrome Web Store](https://chrome.google.com/webstore/detail/autopass/gnlbghgnncejhnpcjhfdodhenjpmbenb). Alternatively, you can install it manually by following these steps I suggest installing manually as you'll have more control on extension in case of errors:
 
-1.  Download the extension by clicking on the green "Code" button and selecting "Download ZIP" or by accessing the [AutoPass repository](https://github.com/kuldeepaher01/AutoPass-extension/archive/refs/heads/main.zip).
-2.  Extract the downloaded ZIP file to a convenient location.
-3.  Open your Chrome or Brave browser and navigate to `chrome://extensions`.
-4.  Enable "Developer mode" in the top right corner.
-5.  Click on "Load unpacked" in the top left corner and select the extracted folder from step 2.
-6.  The AutoPass extension is now installed and ready to use.
+1.  Download the code from the [GitHub repository](https://github.com/your-username/autopass).
+2.  Unzip the downloaded file to a convenient location.
+3.  Open Chrome and go to `chrome://extensions`.
+4.  Turn on developer mode by clicking the toggle switch in the top-right corner of the page.
+5.  Click the "Load unpacked" button in the top-left corner of the page.
+6.  Select the unzipped folder and click "OK".
+7.  Autopass should now be installed and ready to use.
 
 ## Usage
 
