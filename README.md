@@ -2,6 +2,7 @@
 # AutoPass
 
 AutoPass is a Chrome extension designed to simplify the login process for college websites by automatically filling in login credentials. This extension was created with the intention of helping busy students save time and effort by eliminating the need to manually enter login information every time they visit a college website.
+Thanks to @Siddhesh Patil for fixing the loop issue
 
 
 ## Installation
