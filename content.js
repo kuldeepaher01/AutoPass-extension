@@ -1,3 +1,9 @@
+function locationHashChanged() {
+	// console.log("You're visiting a cool feature!", location.hash);
+}
+
+window.onhashchange = locationHashChanged;
+
 if (window.location.href === "https://learner.vierp.in/") {
 	vierp();
 } else if (
@@ -14,11 +20,11 @@ function vierp() {
 				["username_vierp", "password_vierp", "username_volp", "password_volp"],
 				function (data) {
 					if (data.username_vierp && data.password_vierp) {
-						console.log("waiting...");
+						// console.log("waiting...");
 						setTimeout(function () {
-							console.log("logging");
+							// console.log("logging");
 							autoLogin(data.username_vierp, data.password_vierp);
-						}, 200);
+						}, 800);
 					}
 				},
 			);
@@ -29,42 +35,41 @@ function vierp() {
 
 				const attemptLogin = () => {
 					try {
-						const usernameInput = document.getElementById("input-28");
+						const usernameInput = document.getElementById("input-0");
 						usernameInput.value = username;
-						const signinButton = document.querySelector(
-							"#signinusername > center > button",
-						);
+
 						const inputEvent = new Event("input", { bubbles: true });
 						usernameInput.dispatchEvent(inputEvent);
-						signinButton.click();
-						console.log("usr_set");
+						// console.log("usr_set");
 
 						let passwordIntervalId = null;
 						function checkPasswordInput() {
-							const passwordInput = document.getElementById("input-34");
+							const passwordInput = document.getElementById("input-2");
 							if (passwordInput) {
 								clearInterval(passwordIntervalId);
 								passwordInput.value = password;
-								console.log("pass_val_set");
+								// console.log("pass_val_set");
 								const signinButton = document.querySelector(
-									"#signinpassword > center:nth-child(3) > button",
+									"#signin > div.v-row.v-row--no-gutters.justify-center > div:nth-child(1) > div.v-row.v-row--no-gutters.justify-center > button",
 								);
 								passwordInput.dispatchEvent(
 									new Event("input", { bubbles: true }),
 								);
 								signinButton.click();
-								console.log("clicking");
-
-								setTimeout(checkUrl, 200);
+								console.log("Autopass has logged you in");
+								//this checks if the url has changed to the dashboard usefull when you are logged out by vierps timeout
+								setTimeout(checkUrl, 2000);
 							}
 						}
 						passwordIntervalId = setInterval(checkPasswordInput, 200);
 
 						function checkUrl() {
 							if (window.location.href === "https://learner.vierp.in/") {
+								// vierp();
 								location.reload();
 							} else {
-								setTimeout(checkUrl, 100);
+								//if the url has not changed then the either website reloded before pressing signin or password is wrong we increase the delay
+								setTimeout(checkUrl, 6000);
 							}
 						}
 					} catch (err) {
@@ -73,7 +78,6 @@ function vierp() {
 							retryCount++;
 							console.log(`Retrying...attempt ${retryCount}`);
 							setTimeout(() => {
-								window.location.reload();
 								attemptLogin();
 							}, 1000);
 						} else {
@@ -110,6 +114,7 @@ function volp() {
 		usernameInput.dispatchEvent(inputEvent);
 		passwordInput.dispatchEvent(new Event("input", { bubbles: true }));
 		signinButton.click();
+		console.log("Autopass has logged you in");
 
 		function checkUrl() {
 			if (
@@ -118,9 +123,9 @@ function volp() {
 			) {
 				location.reload();
 			} else {
-				setTimeout(checkUrl, 100);
+				setTimeout(checkUrl, 6000);
 			}
 		}
-		setTimeout(checkUrl, 500);
+		setTimeout(checkUrl, 2000);
 	}
 }
