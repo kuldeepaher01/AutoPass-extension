@@ -1,4 +1,5 @@
 
+
 # AutoPass
 
 AutoPass is a Chrome extension designed to simplify the login process for college websites by automatically filling in login credentials. This extension was created with the intention of helping busy students save time and effort by eliminating the need to manually enter login information every time they visit a college website.
@@ -7,7 +8,8 @@ Thanks to @Siddhesh Patil for fixing the loop issue
 
 ## Installation
 
-You can install Autopass from the [Chrome Web Store](https://chrome.google.com/webstore/detail/autopass/gnlbghgnncejhnpcjhfdodhenjpmbenb). Alternatively, you can install it manually by following these steps I suggest installing manually as you'll have more control on extension in case of errors:
+You can install Autopass by following these steps I suggest installing manually as you'll have more control on extension in case of errors:
+I have also published it on chrome store but there seems to be some issues with the way i am handling users input it works with edge and brave but if you use Chrome then it causes some issues.  [Chrome Web Store](https://chrome.google.com/webstore/detail/autopass/gnlbghgnncejhnpcjhfdodhenjpmbenb)
 
 1.  Download the code from the [GitHub repository](https://github.com/your-username/autopass).
 2.  Unzip the downloaded file to a convenient location.
@@ -28,13 +30,9 @@ The AutoPass extension is designed to simplify the login process for students, a
 
 If you are experiencing continuous looping on the Vierp website, it may be due to slow internet connections. To fix this, add a delay in the `content.js` file within the `vierp` function. Look for any numbers and change them to 1000 or 1500, depending on your connection speed.
 
-#### Issues with Web Store Installation
-
-If you are experiencing issues with installing the extension from the web store, try uninstalling and reinstalling it.
-
 #### Issues with Popup Submission
 
-If you have already submitted all the details in the popup when installing the extension but are unable to submit, close the popup and refresh the Vierp page. The popup will reappear, and you can enter the details again.
+If you have already submitted all the details in the popup when installing the extension but are unable to submit, try manual method for installation. (I am working on this)
 
 #### Other Issues
 
@@ -53,10 +51,7 @@ Please note that the AutoPass extension was created solely for educational purpo
 
 ## Contributions
 
-Contributions to the AutoPass project are welcome and greatly appreciated. If you are interested in contributing to the project, please refer to the [CONTRIBUTING.md](https://github.com/kuldeepaher01/AutoPass-extension/blob/main/CONTRIBUTING.md) file for more information.
+Contributions to the AutoPass project are welcome and greatly appreciated. If you are interested in contributing to the project.
 
-## License
-
-The AutoPass extension is licensed under the MIT License. For more information, please refer to the [LICENSE.txt](https://github.com/kuldeepaher01/AutoPass-extension/blob/main/LICENSE.txt) file.
 
 Thank you for using AutoPass!
